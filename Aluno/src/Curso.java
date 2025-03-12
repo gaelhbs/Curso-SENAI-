@@ -36,4 +36,17 @@ public class Curso {
             }
         }
     }
+
+    public void removerAlunoPorMatricula(){
+        System.out.println("Informe a matricula do aluno: ");
+        String matricula = scanner.nextLine();
+        for (Aluno a : alunos) {
+            if(a.getMatricula().equals(matricula)){
+                alunos.remove(a);
+                System.out.println("Aluno removido com sucesso!");
+                return;
+            }
+        }
+        System.out.println("Aluno não encontrado!");
+    }
 }

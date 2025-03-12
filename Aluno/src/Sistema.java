@@ -15,7 +15,8 @@ public class Sistema {
             System.out.println("3 Cadastrar aluno em um curso");
             System.out.println("4 Listar alunos de um curso específico");
             System.out.println("5 Buscar aluno por matrícula em um curso");
-            System.out.println("6 Sair do sistema");
+            System.out.println("6 Remover aluno por matrícula em um curso");
+            System.out.println("7 Sair do sistema");
             System.out.print("Escolha uma opção: ");
 
             int opcao = scanner.nextInt();
@@ -108,6 +109,20 @@ public class Sistema {
                     break;
 
                 case 6:
+                    if(listaCursos.isEmpty()){
+                        System.out.println("Nenhum curso cadastrado!");
+                        break;
+                    }
+                    System.out.print("Digite o nome do curso: ");
+                    String nomeCursoRemover = scanner.nextLine();
+                    for (Curso c : listaCursos) {
+                        if (c.getNomeCurso().equalsIgnoreCase(nomeCursoRemover)) {
+                            c.removerAlunoPorMatricula();
+                            break;
+                        }
+                    }
+                        break;
+                case 7:
                     sair = true;
                     return;
 
